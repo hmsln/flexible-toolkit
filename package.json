@@ -1,7 +1,7 @@
 {
   "name": "flexible-toolkit",
   "version": "1.0.2",
-  "description": "Utility functions for node.js",
+  "description": "Utility functions for node.js, as extension of native types and/or as standalone functions",
   "keywords": [
     "utilities",
     "utility",
