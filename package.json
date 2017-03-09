@@ -21,6 +21,11 @@
   "engines": {
     "node": "4.1.2"
   },
+  "repository" :
+  {
+  	"type" : "git",
+  	"url" : "https://github.com/hmsln/flexible-toolkit"
+  },
   "author": "Hubert Maslin <hubert.maslin@gmail.com>",
   "license": "MIT"
 }
