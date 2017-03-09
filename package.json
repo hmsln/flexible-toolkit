@@ -1,0 +1,26 @@
+{
+  "name": "flexible-toolkit",
+  "version": "1.0.2",
+  "description": "Utility functions for node.js",
+  "keywords": [
+    "utilities",
+    "utility",
+    "clone",
+    "array manipulation"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine-node test"
+  },
+  "dependencies": {
+    "suit-yourself": "x"
+  },
+  "devDependencies": {
+    "jasmine-node": "^1.14.5"
+  },
+  "engines": {
+    "node": "4.1.2"
+  },
+  "author": "Hubert Maslin <hubert.maslin@gmail.com>",
+  "license": "MIT"
+}
