@@ -1,8 +1,8 @@
 'use strict';
 
-var toolkit = require('../index.js')();
-//var toolkit = require('../index.js')(false, true);
-/*var toolkit = require('../index.js')([
+//var toolkit = require('../index.js')();
+//var toolkit = require('../index.js')(true, true);
+var toolkit = require('../index.js')([
     {
        name: 'array',
        args: [true, true]//import as native types extension and standalone functions
@@ -21,7 +21,7 @@ var toolkit = require('../index.js')();
     {
         name: 'arithmetics'
     }
-]);*/
+]);
 
 describe('utility functions for arrays;', function () {
 
