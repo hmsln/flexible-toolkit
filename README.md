@@ -112,14 +112,14 @@ Available submodules are:
 + ```arithmetics``` and ```scheduled-action```, which can only be imported as standalone functions.
 
 
-### arithmetics
+#### arithmetics
 **randStr([length])** - Generate a random string of length ```length``` with characters 0-9a-zA-Z (default length is 32).
 ```javascript
 var r = toolkit.arithmetics.randStr();
 console.log(r);
 //'HJD8PXL7uaaF7ze8YDaqPO8XxWkvQfSE'
 ```
-### array
+#### array
 **copy()** - Shallow copies the array.
 ```javascript
 var testArr = [1, 2, 3, 4, 5];
@@ -163,7 +163,7 @@ var bool = testArr.containsElementsOfArray(testArr2);
 console.log(bool);
 //true
 ```
-### object
+#### object
 **shallowCopy** - copies enumerable properties of an object, including its subobjects, and its protoype chain; Warning! subobjects are copied as references, and are shared with the origin object.
 ```javascript
 var makeObj = function () {
@@ -190,7 +190,7 @@ var obj = new makeObj();
 var copy = obj.deepCopy();
 //or as standalone function: var copy = toolkit.object.deepCopy(obj);
 ```
-### string
+#### string
 **capitalize** - the first character of the string is set in uppercase.
 ```javascript
 var testStr = 'simba';
@@ -207,7 +207,7 @@ testStr.capitalize();
 console.log(testStr);
 //simba
 ```
-### scheduled-action
+#### scheduled-action
 Allows you to schedule a allback to execute once some conditions have been met.
 ```javascript
 //create callback function, setting bool as

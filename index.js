@@ -1,5 +1,6 @@
 'use strict';
 
+var customErrorFactory = require('custom-error-factory');
 var suitYourself = require('suit-yourself');
 
 /*
@@ -9,7 +10,12 @@ the handleArgumentsElse function (see below) can handle
 */
 module.exports = function () {
 	
-    //turns arguments into an array for convenience's sake
+	//define custom error
+	var InvalidParametersError = customErrorFactory(TypeError,
+		'Invalid_Parameters_Error',
+		'Invalid parameters have been passed to module flexible-toolkit');
+		
+    //turns arguments into an actual array for convenience's sake
 	var args = Array().slice.call(arguments);
 	
     //path of toolkit submodules
@@ -29,36 +35,32 @@ module.exports = function () {
             isFactory: true
     	}
     };
-	
-    /*
-    -allow requiring all modules at once by passing no parameters to toolkit factory, or one or two booleans
-    -this function is called within suit-yourself if toRequireArgs isn't an array
-    */
-    var handleArgumentsElse = function (toRequireArgs) { 
-        
-        var extendingNatives = false;
-    	var standaloneFunctions = false;
-		
-        //requiring all modules as extensions of native types AND standalone functions
-    	if (toRequireArgs.length === 0) {
-
-    		extendingNatives = true;
-    		standaloneFunctions = true;
-    	
-	    } else if (Object.prototype.toString.call(toRequireArgs[0]) === '[object Boolean]') {
-            //requiring all modules as extensions of native types AND/OR standalone functions
-    		extendingNatives = toRequireArgs[0];
-	    	standaloneFunctions = toRequireArgs[1] == undefined ? false : toRequireArgs[1];
-	    	
-    	} else {//invalid arguments
-    		throw new TypeError('Invalid parameters have been passed to module flexible-toolkit');
-    	}
-    	
-    	return [extendingNatives, standaloneFunctions];
+    
+    //define parameter to specify which modules should be called
+    var toRequire = {};
+    
+    //if no arguments have been passed: require all submodules, as both native objects extensions and standalone functions
+    if (args.length == 0) {
+    	toRequire.requireMode = 'all';
+    	toRequire.args = [true, true];
+    } else if (args.length == 2 && typeof(args[0]) == 'boolean' && typeof(args[1]) == 'boolean') {
+    	/*
+    	all modules are to be require; two boolean arguments:specify whether submodules
+    	should be required as both native objects extensions and standalone functions
+    	*/
+    	toRequire.requireMode = 'all';
+    	toRequire.args = [args[0], args[1]];
+    } else if (args.length == 1 && Object.prototype.toString.call(args[0]) == '[object Array]') {
+    	toRequire.requireMode = 'specific';
+    	toRequire.requireList = args[0];
+    } else {
+    	throw new TypeError('Invalid parameters have been passed to module flexible-toolkit');
     }
     
+    var toRequireArgs = args.slice(2);
+    
     //add path and list of available submodules
-    args.unshift(path, availableSubmodules, handleArgumentsElse);
+    args.unshift(path, availableSubmodules, toRequire);
     
     //require submodules through suit-yourself
 	return suitYourself.apply({}, args);
