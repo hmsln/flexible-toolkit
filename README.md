@@ -1,4 +1,4 @@
-# Flexible toolkit
+# Flexible Toolkit
 
 ```flexible-toolkit``` is an open source module that exposes utility functions (for string, object or array manipulation).
 These utility functions are gathered as submodules that can be imported one by one. You can specify, for each module, whether
