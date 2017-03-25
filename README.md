@@ -239,5 +239,5 @@ set manipulation operations such as ```intersect```, ```union``` or ```differenc
 
 
 ## Contact
-If you have any bugs to report or improvements to suggest you can send me an email
+If you have any bugs to report or improvements to suggest, you can send me an email
 at <hubert.maslin@gmail.com>.
