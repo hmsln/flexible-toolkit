@@ -237,4 +237,7 @@ Add typechecking to make some functions more robust to programmer error (throw T
 Some of the submodules might be enriched with new functions. Other submodules could be added. I'm thinking of adding
 set manipulation operations such as ```intersect```, ```union``` or ```difference``` for ```Set``` and ```WeakSet``` types.
 
-Thank you for reading this far. If you have any bugs to report or improvements to suggest you can send me an email at hubert.maslin@gmail.com.
+
+## Contact
+Thank you for reading this far. If you have any bugs to report or improvements to suggest you can send me an email
+at hubert.maslin@gmail.com.
